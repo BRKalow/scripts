@@ -10,7 +10,16 @@ addkey
 Use this nix script to add your key to a remote server via SSH.
 
 ```
-./addkey [USERNAME] [SERVER IP]
+./addkey/addkey.sh [USERNAME] [SERVER IP]
+```
+
+rubygame
+--------
+
+One of my first explorations into Ruby from a few years back. A really simple command line game that isn't very fun at all.
+
+```
+ruby ./rubygame/game.rb
 ```
 
 Credits
