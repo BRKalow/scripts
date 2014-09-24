@@ -14,27 +14,7 @@ class Entity
   end
 
   def action(action)
-
-    case action
-      when "rest"
-        self.rest
-      when "fight"
-        self.fight
-      when "run"
-        self.run
-      when "train"
-        self.train
-      when "stats"
-        self.stats
-      when "eat"
-        self.eat
-      when "godmode"
-        self.godmode
-      when "quit"
-        exit
-      else
-        puts "You do nothing"
-    end
+    self.send action
   end
 
   def take_life(amount)
@@ -127,13 +107,22 @@ class Entity
       puts "Current foods: #{self.foods}"
     end
 
+    def quit
+      puts "Thanks for playing"
+      exit
+    end
+
     def spawn_enemy
       level = self.level
       xp = level*Random.rand(10)
       power = Random.rand(level + 1) + 5
       life = 10 + Random.rand(level)
 
-      enemy = Entity.new(life,power,xp,level)
+      Entity.new(life,power,xp,level)
+    end
+
+    def method_missing(method, *args, &block)
+      puts "You do nothing"
     end
 end
 
